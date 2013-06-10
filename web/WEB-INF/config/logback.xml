@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+ 
+
+    <appender name="STDOUT"
+              class="ch.qos.logback.core.ConsoleAppender">
+ 
+        <!-- encoders are assigned by default the type
+        ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n                
+            </pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${user.dir}/logs/core.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </Pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>${user.dir}/logs/core.%i.log</FileNamePattern>       
+            <MinIndex>1</MinIndex>      
+            <MaxIndex>10</MaxIndex>       
+        </rollingPolicy>
+        <triggeringPolicy
+            class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>1MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+    
+    <logger name="core.prototype.rengine" level="ERROR" />
+    <logger name="org.springframework" level="ERROR" />
+    <logger name="org.springframework.jdbc" level="ERROR" />
+    <logger name="org.springframework.jdbc.core.StatementCreatorUtils" level="TRACE" />
+    <logger name="org.hibernate.type" level="ERROR" />
+    <logger name="org.hibernate" level="ERROR" />
+ 
+    <root level="ERROR">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+ 
+</configuration>
