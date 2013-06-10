@@ -1,18 +1,18 @@
 DataAnalysis
 ============
 
-A Java-based example for building data analysis tools
+Java-based data analysis scaffolding
 
 Introduction
 
-This is a project-skeleton for configuration and integration of components related to data analysis.  It utilizes the Spring framework, R engine,  JDBC/ORM data access, and RESTful web services.  The code is functional, but in essence it is a starting point to build upon.  Support for Hadoop framework will follow.
+This is a project template for configuring and integrating data analysis components.   It utilizes the Spring framework, R engine, JDBC/ORM data access, and RESTful web services.   The code is functional, but in essence it is a starting point to build upon.   Support for Hadoop framework will follow.
 
 Details
 
-The code is developed in NetBeans IDE and tested with Tomcat server, R Rserve package, and MySql DB.  For test data, R Iris dataset is used.   It could be loaded to the DB with one of the supplyed unit tests.   Before loading create a table decribed in the unit test.  Also edit the properties and log configuration files accordingly.
+The code is developed in the NetBeans IDE and tested with Tomcat server, R Rserve package, and MySql.   For test data, the R Iris dataset is used.    It can be loaded into the DB with one of the supplied unit tests.   Before loading, create a table as specifyed in the SQL script.   Also, edit the properties and log configuration files accordingly.
+
 
 License
 
 MIT License
-
 
