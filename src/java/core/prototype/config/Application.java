@@ -3,6 +3,10 @@ package core.prototype.config;
 import core.prototype.dao.DaoParameters;
 import core.prototype.dao.DataAccessApi;
 import core.prototype.domain.DomainApi;
+import core.prototype.hadoop.HadoopParameters;
+import core.prototype.hadoop.hbase.HbaseDelegateApi;
+import core.prototype.hadoop.hdfs.HdfsDelegateApi;
+import core.prototype.hadoop.mapreduce.MapreduceDelegateApi;
 import core.prototype.rengine.REngineApi;
 import core.prototype.rengine.RServeParameters;
 import java.util.Map;
@@ -154,6 +158,47 @@ public class Application {
         parameters.setDaoProfiles(dbProfiles);
         return parameters;
     }
+    
+     /* 
+     * Hadoop  Modules
+     */
+    public HbaseDelegateApi getHbase() {
+        HadoopParameters parameters = getHadoopProperties();
+        HbaseDelegateApi hb =
+                (HbaseDelegateApi) (this.applicationContext.getBean("hBase", new Object[]{parameters}));
+        return hb;
+    }
+
+    public HdfsDelegateApi getHdfs() {
+        HadoopParameters parameters = getHadoopProperties();
+        HdfsDelegateApi hb =
+                (HdfsDelegateApi) (this.applicationContext.getBean("hDfs", new Object[]{parameters}));
+        return hb;
+    }
+
+    public MapreduceDelegateApi getMapreduceWordCount() {
+        HadoopParameters parameters = getHadoopProperties();
+        MapreduceDelegateApi mr =
+                (MapreduceDelegateApi) (this.applicationContext.getBean("mrWordcount", new Object[]{parameters}));
+        return mr;
+    }
+
+    private HadoopParameters getHadoopProperties() {
+        HadoopParameters params = new HadoopParameters();
+        Properties props = this.getProperties(this.propertiesFileAbsolutePath);
+        params.setFsDefaultName((String) props.get("fs.default.name"));
+        params.setHbaseMaster((String) props.get("hbase.master"));
+        String poolSize = (String) props.get("hbase.pool.size");
+        params.setHbasePoolSize(Integer.parseInt(poolSize.trim()));
+        params.setHbaseZookeeperQuorum((String) props.get("hbase.zookeeper.quorum"));
+        params.setIsIp4(((String) props.get("java.net.preferIPv4Stack")).equals("true"));
+        params.setLocalWorkDir(this.workDirAbsolutePath);
+        params.setMapredJarPath((String) props.get("mapred.jar.path"));
+        params.setMapredJobTracker((String) props.get("mapred.job.tracker"));
+        params.setUserName((String) props.get("hadoop.user.name"));
+        return params;
+    }
+
 
     /*
      * Properties Readers

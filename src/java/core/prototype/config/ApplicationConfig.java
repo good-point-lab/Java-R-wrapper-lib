@@ -3,6 +3,7 @@ package core.prototype.config;
 import core.prototype.dao.DaoConfig;
 import core.prototype.dao.DaoProfilesConfig;
 import core.prototype.domain.DomainConfig;
+import core.prototype.hadoop.HadoopConfig;
 import core.prototype.rengine.REngineConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -16,7 +17,8 @@ import org.springframework.context.annotation.Import;
     PropertiesFileReader.class,
     DaoProfilesConfig.class,
     DaoConfig.class,
-    REngineConfig.class
+    REngineConfig.class,
+    HadoopConfig.class
 })
 public class ApplicationConfig {
 

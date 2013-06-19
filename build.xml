@@ -68,4 +68,10 @@
     nbproject/build-impl.xml file. 
 
     -->
+    <target name="-post-compile">
+        <jar destfile="${build.web.dir}/WEB-INF/lib/${jar.name}">
+            <fileset dir="${build.classes.dir}">
+            </fileset>
+        </jar>
+    </target>
 </project>

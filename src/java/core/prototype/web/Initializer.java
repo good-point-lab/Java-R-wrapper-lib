@@ -1,5 +1,7 @@
 package core.prototype.web;
 
+import com.sun.jersey.api.core.PackagesResourceConfig;
+import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.jersey.spi.container.servlet.ServletContainer;
 import core.prototype.config.Application;
 import core.prototype.config.ConfigUtils;
@@ -48,11 +50,12 @@ public class Initializer implements WebApplicationInitializer {
         dispatcher.addMapping("/");
 
         // REST with JERSEY
+        ResourceConfig rc = new PackagesResourceConfig("core.prototype");
+        ServletContainer sc = new ServletContainer(rc);
         dispatcher = servletContext.addServlet(
-                "JAX-RS REST Servlet", new ServletContainer());
+                "JAX-RS REST Servlet", sc);
         dispatcher.setLoadOnStartup(2);
         dispatcher.addMapping("/services/*");
-
 
     }
 }
