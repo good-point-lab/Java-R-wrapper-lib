@@ -5,7 +5,7 @@ Java-based data analysis scaffolding
 
 Introduction
 
-This is a project template for configuring and integrating data analysis components.   It utilizes the Spring framework, R engine, JDBC/ORM data access, and RESTful web services.   The code is functional, but in essence it is a starting point to build upon.   Support for Hadoop framework will follow.
+This is a project template for configuring and integrating data analysis components.   It utilizes the Spring framework, R engine, JDBC/ORM data access, Hadoop clients, and RESTful web services.   The code is functional, but in essence it is a starting point to build upon.
 
 Details
 
