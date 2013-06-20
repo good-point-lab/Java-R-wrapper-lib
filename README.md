@@ -9,7 +9,7 @@ This is a project template for configuring and integrating data analysis compone
 
 Details
 
-The code is developed in the NetBeans IDE and tested with Tomcat server, R Rserve package, and MySql. For test data, the R Iris dataset is used. It can be loaded into the DB with one of the supplied unit tests. Before loading, create a table as specifyed in the SQL script. Also, edit the properties and log configuration files accordingly.
+The code is developed in the NetBeans IDE and tested with Tomcat server, R Rserve package, and MySql. For test data, the R Iris dataset is used. It can be loaded into the DB with one of the supplied unit tests. Before loading, create a table as specified in the SQL script. Also, edit the properties and log configuration files accordingly.
 
 License
 
