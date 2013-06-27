@@ -1,4 +1,8 @@
 /build/
 /dist/
 .DS_Store
+<<<<<<< HEAD
 .DS_Store?
+=======
+.DS_Store?
+>>>>>>> 449287c0615a7d39d194521b72684375374883e1
